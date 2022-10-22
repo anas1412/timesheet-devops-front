@@ -1,7 +1,7 @@
 #################
 # Build the app #
 #################
-FROM node:16-alpine AS build
+FROM node:16-alpine AS node
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 RUN npm install
@@ -11,7 +11,7 @@ RUN npm run build --prod
 # Run in NGINX #
 ################
 FROM nginx:alpine
-COPY --from=build /usr/local/app/dist/crudtuto-front /usr/share/nginx/html
+COPY --from=node /usr/local/app/dist/crudtuto-front /usr/share/nginx/html
 
 EXPOSE 80
 
