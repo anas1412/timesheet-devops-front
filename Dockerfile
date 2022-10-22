@@ -13,7 +13,7 @@ RUN npm run build --prod
 # Run in NGINX #
 ################
 FROM nginx:alpine
-COPY --from=build /usr/local/app/dist/crudtuto-front /usr/share/nginx/html
+COPY --from=build /app/dist/crudtuto-front /usr/share/nginx/html
 
 EXPOSE 80
 
