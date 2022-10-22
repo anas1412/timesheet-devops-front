@@ -2,10 +2,9 @@
 # Build the app #
 #################
 FROM node:12-alpine as build
-WORKDIR /app
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
 COPY package.json package-lock.json ./
-RUN npm install
-COPY . .
 RUN npm install -g @angular/cli
 RUN npm run build --prod
 
@@ -13,7 +12,7 @@ RUN npm run build --prod
 # Run in NGINX #
 ################
 FROM nginx:alpine
-COPY --from=build /app/dist/crudtuto-front /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/crudtuto-front /usr/share/nginx/html
 
 EXPOSE 80
 
