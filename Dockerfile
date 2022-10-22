@@ -1,7 +1,7 @@
 #################
 # Build the app #
 #################
-FROM node:latest as build
+FROM node:16 as build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 COPY package.json package-lock.json ./
