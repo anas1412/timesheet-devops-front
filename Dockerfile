@@ -1,7 +1,7 @@
 #################
 # Build the app #
 #################
-FROM node:12-alpine as build
+FROM node:latest as build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 COPY package.json package-lock.json ./
