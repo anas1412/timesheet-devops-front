@@ -1,11 +1,11 @@
 #################
 # Build the app #
 #################
-FROM node:16 as build
+FROM node:16-alpine AS build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app/
 COPY package.json package-lock.json ./
-RUN npm install -g @angular/cli
+RUN npm install
 RUN npm run build --prod
 
 ################
