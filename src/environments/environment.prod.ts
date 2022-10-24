@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'http://localhost:8089/SpringMVC/'
+  api_url: 'http://192.168.1.55:8089/SpringMVC/'
 };
